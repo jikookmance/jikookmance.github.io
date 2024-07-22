@@ -9,6 +9,14 @@ document
       dropdown.style.display = "block";
     }
   });
+document.addEventListener("DOMContentLoaded", function () {
+  var video = document.querySelector("video");
+  if (video) {
+    video.play().catch(function (error) {
+      console.log("Reprodução automática falhou:", error);
+    });
+  }
+});
 
 window.onclick = function (event) {
   if (!event.target.matches(".navbar-brand")) {
@@ -93,14 +101,13 @@ function scrollToSection(sectionId) {
   }
 }
 
-
 function autora(event) {
   event.preventDefault();
 
   const autora = document.getElementById("autora");
   const conteudo = document.getElementById("conteudo");
   const personagens = document.getElementById("personagens");
-  
+
   if (autora) {
     autora.style.display = "block";
     conteudo.style.display = "none";
@@ -120,25 +127,25 @@ function voltar() {
 }
 
 function copyText() {
-    var textToCopy = document.getElementById("text-to-copy").innerText;
+  var textToCopy = document.getElementById("text-to-copy").innerText;
 
-    var tempInput = document.createElement("input");
-    tempInput.value = textToCopy;
-    document.body.appendChild(tempInput);
+  var tempInput = document.createElement("input");
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
 
-    tempInput.select();
-    tempInput.setSelectionRange(0, 99999); 
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999);
 
-    document.execCommand("copy");
+  document.execCommand("copy");
 
-    document.body.removeChild(tempInput);
+  document.body.removeChild(tempInput);
 
-    var icon = document.getElementById("copy-icon");
-    icon.classList.remove("bi-copy");
-    icon.classList.add("bi-check2-square");
+  var icon = document.getElementById("copy-icon");
+  icon.classList.remove("bi-copy");
+  icon.classList.add("bi-check2-square");
 
-    setTimeout(function() {
-        icon.classList.remove("bi-check2-square");
-        icon.classList.add("bi-copy");
-    }, 500);
+  setTimeout(function () {
+    icon.classList.remove("bi-check2-square");
+    icon.classList.add("bi-copy");
+  }, 500);
 }
