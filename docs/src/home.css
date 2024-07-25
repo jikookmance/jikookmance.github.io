@@ -357,7 +357,7 @@ a{
     .container {
         margin-top: 205px;
         width: 350px;
-        height: 640px;
+        height: 100%;
     }
     .video-container {
         position: absolute;
